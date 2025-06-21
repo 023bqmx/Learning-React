@@ -26,7 +26,7 @@ export default function Counter () {
                 Click Me to reset number
             </button>
            
-           <p>You clicked {count} times.</p>
+           <h1>You clicked {count} times.</h1>
 
         </center>
         
