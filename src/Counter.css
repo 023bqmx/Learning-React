@@ -8,3 +8,30 @@ button {
     -webkit-border-radius: 53px 52px 52px 52px;
     -moz-border-radius: 53px 52px 52px 52px;
 }
+
+.type {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+}
+
+.blaaa {
+    text-align:justify;
+    margin-left: 55rem;
+}
+
+.blaaa ul {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.cha {
+    text-shadow: 3px 4px 2px rgba(0,0,0,0.6);
+}
+
+.click {
+    text-shadow: 3px 4px 2px rgba(0,0,0,0.6);
+}

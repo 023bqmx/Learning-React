@@ -1,0 +1,298 @@
+body {
+    /* Existing styles */
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* พื้นหลังสีรุ้งและเคลื่อนไหว */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#root {
+    background-color: rgba(22, 33, 62, 0.85); /* Slightly transparent background */
+    padding: 50px; /* เพิ่ม padding ให้กรอบกว้างขึ้น */
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Stronger shadow for depth */
+    text-align: center;
+    width: 95%; /* เพิ่มความกว้างของกรอบ */
+    max-width: 600px; /* เพิ่ม max-width เพื่อให้กรอบใหญ่ขึ้นในจอใหญ่ */
+    box-sizing: border-box;
+    border: 1px solid #0f3460; /* Subtle border */
+    position: relative;
+    z-index: 1;
+    /* Shimmering effect */
+    overflow: hidden; /* Hide overflow for the shimmer effect */
+}
+
+#root::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 5s linear infinite;
+    z-index: 2; /* Place shimmer above the background */
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Updated H1 styles for rainbow text effect */
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #ee7752); /* Rainbow gradient */
+    background-size: 200% auto; /* Make gradient wider than text */
+    -webkit-background-clip: text; /* Clip background to text shape */
+    -webkit-text-fill-color: transparent; /* Make text color transparent */
+    animation: text-rainbow 8s linear infinite; /* Animation for rainbow effect */
+    display: inline-block; /* Ensure background-clip works */
+}
+
+@keyframes text-rainbow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; } /* Move gradient across the text */
+}
+
+
+/* Flexbox for aligning labels, inputs, and units on the same line */
+.input-group {
+    display: flex;
+    align-items: center; /* Vertically align items in the middle */
+    justify-content: center; /* Center the group horizontally */
+    margin-bottom: 30px; /* เพิ่ม space ระหว่าง input groups */
+    gap: 20px; /* เพิ่ม space ระหว่าง label, input container, and unit */
+}
+
+.input-group label {
+    font-size: 1.3em;
+    min-width: 90px;
+    text-align: right;
+    color: #53d2dc;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+/* --- Input Styles with Glow --- */
+.input-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 250px; /* เพิ่ม max-width สำหรับ input */
+    height: 55px; /* เพิ่ม height เพื่อให้ input ดูใหญ่ขึ้น */
+    display: flex;
+    align-items: center;
+    border-radius: 12px; /* Slightly more rounded corners */
+    overflow: hidden;
+    /* Add a subtle initial border color for when not focused */
+    border: 2px solid #0f3460;
+    transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+input {
+    width: 100%;
+    padding: 16px 20px; /* เพิ่ม padding ใน input */
+    border: none;
+    background-color: #0f3460;
+    color: #e0e0e0;
+    font-size: 1.3em; /* เพิ่มขนาด font ใน input */
+    outline: none;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.7); /* Deeper inner shadow */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Glow effect on input container when input is focused */
+.input-container:focus-within {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px #e94560, /* Primary glow color */
+                0 0 20px rgba(233, 69, 96, 0.8), /* Stronger, diffused glow */
+                0 0 40px rgba(233, 69, 96, 0.4); /* Wider, softer glow */
+}
+
+input:focus {
+    background-color: #2a3b5c;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.9);
+    transform: scale(1.01);
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: rgba(224, 224, 224, 0.6); /* ปรับสี placeholder ให้อ่อนลงเล็กน้อย */
+    font-style: italic;
+    font-weight: normal;
+}
+/* --- End of Input Styles with Glow --- */
+
+.input-group span {
+    font-size: 1.3em;
+    min-width: 60px;
+    text-align: left;
+    color: #53d2dc;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+button {
+    background-color: #e94560;
+    color: white;
+    padding: 20px 45px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.4em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ff6d88;
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.oun {
+    width: 200px;
+    height: auto;
+    margin-top: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    border: 4px solid #e94560;
+    object-fit: contain;
+}
+
+/* Updated .BmiText h1 styles for rainbow text effect */
+.BmiText {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #0f3460;
+}
+
+.BmiText h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #ee7752); /* Rainbow gradient */
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-rainbow 8s linear infinite; /* Reuse rainbow animation */
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    #root {
+        padding: 30px;
+        width: 95%;
+        max-width: unset;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+
+    .BmiText h1 {
+        font-size: 2em;
+    }
+
+    /* Other responsive adjustments as before */
+    .input-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .input-group label {
+        font-size: 1.1em;
+        min-width: unset;
+        text-align: center;
+    }
+
+    .input-container {
+        width: 100%;
+        max-width: 280px;
+        height: 50px;
+    }
+
+    input {
+        font-size: 1.2em;
+        padding: 14px 18px;
+    }
+
+    .input-group span {
+        margin-top: 5px;
+        margin-left: 0;
+        font-size: 1.1em;
+    }
+
+    button {
+        padding: 16px 35px;
+        font-size: 1.1em;
+        margin-top: 20px;
+    }
+
+    .oun {
+        width: 150px;
+        margin-top: 30px;
+    }
+
+    .BmiText {
+        margin-top: 30px;
+    }
+}
