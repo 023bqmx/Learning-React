@@ -231,7 +231,8 @@ button:hover::before {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: text-rainbow 8s linear infinite; /* Reuse rainbow animation */
-    display: inline-block;
+    display:flex;
+ 
 }
 
 @media (max-width: 600px) {
